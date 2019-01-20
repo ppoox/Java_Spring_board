@@ -28,14 +28,12 @@ public class BoardController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/boarddelete", method=RequestMethod.POST)
-	public ModelAndView boardDelete(HttpServletRequest request) {
-//		int dNum=Integer.parseInt(request.getParameter("dNum"));
-//		boardService.boardDelete(dNum);
-		System.out.println("delete");
-		ModelAndView mView=new ModelAndView();
-		mView.setViewName("/home");
-		return mView;
+	@RequestMapping(value="/boarddelete", method=RequestMethod.GET)
+	public String boardDelete(HttpServletRequest request) {
+		int dNum=Integer.parseInt(request.getParameter("dNum"));
+		boardService.boardDelete(dNum);
+		
+		return "redirect:/";
 	}
 	
 }

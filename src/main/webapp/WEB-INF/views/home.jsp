@@ -53,14 +53,14 @@
 						<c:otherwise>
 							<c:forEach var="tmp" items="${list }">
 								<tr>
-									<td>${tmp.b_num }</td>
+									<td>${tmp.b_num}</td>
 									<td>${tmp.title }</td>
 									<td>${tmp.content }</td>
 									<td>작성자</td>
 									<td>${tmp.regdate }</td>
 									<td>
 										<input name="delete" type="button" value="삭제"
-											onclick="javascript:location.href='/boarddelete?b_num=${tmp.b_num}'"/>
+											onclick="javascript:location.href='/board/boarddelete?dNum=${tmp.b_num}'"/>
 									</td>
 								</tr>						
 							</c:forEach>

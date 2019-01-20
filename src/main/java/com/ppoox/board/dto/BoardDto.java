@@ -6,6 +6,7 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private String regdate;
+	private int rowCount;
 	
 	public BoardDto() {}
 
@@ -47,6 +48,14 @@ public class BoardDto {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public int getRowCount() {
+		return rowCount;
+	}
+
+	public void setRowCount(int rowCount) {
+		this.rowCount = rowCount;
 	}
 	
 	

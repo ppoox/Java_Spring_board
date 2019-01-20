@@ -1,24 +1,29 @@
 package com.ppoox.board;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
+import java.util.List;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.ppoox.board.dto.BoardDto;
+import com.ppoox.board.service.BoardService;
 
 @Controller
 public class HomeController {
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(HttpServletRequest request) {
 	
-		
-		return "home";
+	@Autowired
+	private BoardService boardService;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView home(HttpServletRequest request) {
+		BoardDto dto=new BoardDto();
+		ModelAndView mView=boardService.getList(dto);
+		mView.setViewName("home");
+		return mView;
 	}
 }
